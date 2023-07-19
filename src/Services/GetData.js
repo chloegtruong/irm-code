@@ -33,8 +33,14 @@ export const GetData = (timeframe) => {
       deletedScans: 231,
       orphanedScans: 24,
       openWarmupRequests: 52,
+      oldWarmupRequests: 10,
       unsubmittedRequisitions: 21,
       openComplaints: 5,
+      unansweredComplaints: 3,
+      viewedAccessionsY: 15,
+      viewedAccessionsT: 20,
+      viewedAccessionsByPathologistY: 16,
+      viewedAccessionsByPathologistT: 22,
     };
   }
 };
