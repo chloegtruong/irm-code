@@ -10,7 +10,7 @@ const WarmupRequests = () => {
 
         const fetchData = () => {
 
-            const timeframe = "historic"; // always current time frame in this file
+            const timeframe = "historic"; // always hisoric time frame in this file
             const data = GetData(timeframe);
             setOpenWarmupRequests(data.openWarmupRequests);
             setOldWarmupRequests(data.oldWarmupRequests);

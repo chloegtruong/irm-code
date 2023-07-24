@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import Dropdown from './Dropdown';
 
+
+ // deinfe state variable for each of the options 
+  // get options for each dropdown inside filyter s
+  // import component 
+
 const Filters = () => {
 
   // function Dropdown(props){
@@ -16,6 +21,19 @@ const Filters = () => {
   //     }
   //   }
   // }
+
+  // const [option1, setOption1] = useState(null);
+  // const [option2, setOption2] = useState(null);
+  // const [option3, setOption3] = useState(null);
+
+  const options = [
+    {label: 'option1', value: 'option1'},
+    {label: 'option2', value: 'option2'},
+    {label: 'option3', value: 'option3'},
+  ];
+
+  const [dropdown1, setDropdown1] = useState(null);
+
   return (
     <div>
     {/* <div>
@@ -25,8 +43,8 @@ const Filters = () => {
       <table>
         <tr>
       <td><button>Overall</button></td>
-      <td><Dropdown/></td>
-      <td><Dropdown/></td>
+      <td><Dropdown dropdownOptions={options} currentState = {dropdown1} setState = {setDropdown1}/></td>
+      {/* <td><Dropdown/></td> */}
       </tr>
     </table>
     </div>

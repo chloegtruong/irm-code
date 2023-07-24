@@ -37,10 +37,10 @@ export const GetData = (timeframe) => {
       unsubmittedRequisitions: 21,
       openComplaints: 5,
       unansweredComplaints: 3,
-      viewedAccessionsY: 15,
-      viewedAccessionsT: 20,
-      viewedAccessionsByPathologistY: 16,
-      viewedAccessionsByPathologistT: 22,
+      numViewsYesterday: 15,
+      numViewsToday: 20,
+      numViewsByPathologistYesterday: 16,
+      numViewsByPathologistToday: 22,
     };
   }
 };

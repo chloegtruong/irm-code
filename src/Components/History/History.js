@@ -1,23 +1,26 @@
 import Filters from "../Filters/Filters";
 import OrderItems from "../History/OrderItems";
-import Scans from "../History/Scans";
+import Scans from "../Shared Components/Scans";
 import WarmupRequests  from "../History/WarmupRequests";
-import Accessions from "../History/Accessions";
-import Requisitions from "../History/Requisitions";
-import Complaints from "../History/Complaints";
+import Accessions from "../Shared Components/Accessions";
+import Requisitions from "../Shared Components/Requisitions";
+import Complaints from "../Shared Components/Complaints";
 
 
 const History = () => {
+
+  const timeframe = "historic";
+
   return (
     <div>
       <Filters />
       <h3>History dashboard goes here</h3>
       <OrderItems/>
-      <Scans/>
+      <Scans timeframe = {timeframe}/>
       <WarmupRequests/>
-      <Accessions/>
-      <Requisitions/>
-      <Complaints/>
+      <Accessions timeframe = {timeframe}/>
+      <Requisitions timeframe = {timeframe}/>
+      <Complaints timeframe = {timeframe}/>
 
     </div>
   );
