@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { GetData } from "../../Services/GetData";
 
-const WarmupRequests = () => {
+const WarmupRequests = ({filter}) => {
 
     const [openWarmupRequests, setOpenWarmupRequests] = useState(null);
     const [oldWarmupRequests, setOldWarmupRequests] = useState(null);
@@ -22,6 +22,7 @@ const WarmupRequests = () => {
     return(
         <div className="component">
         <h3>Warmup Requests</h3>
+        <p>Filter Applied: {filter}</p>
         <p>Open Requests: {openWarmupRequests}</p>
         <p>Requests beyond 1 hr: {oldWarmupRequests}</p>
         </div>

@@ -2,7 +2,7 @@ import { GetData } from "../../Services/GetData";
 import {useState, useEffect} from "react";
 
 
-const Accessions = () => {
+const Accessions = ({timeframe, filter, startDate, endDate}) => {
 
     const [numViewsYesterday, setNumViewsYesterday] = useState(null);
     const [numViewsToday, setNumViewsToday] = useState(null);
@@ -11,7 +11,7 @@ const Accessions = () => {
 
     useEffect (() => {
         const fetchData = () => {
-            const timeframe = "historic"; // always historic time frame in this file
+            //const timeframe = "historic"; // always historic time frame in this file
             const data = GetData(timeframe);
             setNumViewsYesterday(data.numViewsYesterday);
             setNumViewsToday(data.numViewsToday);
@@ -20,11 +20,15 @@ const Accessions = () => {
         };
 
         fetchData();
-    }, []);
+    }, [timeframe]);
 
     return(
         <div className = "component">
         <h3>Accessions</h3>
+        <p>Filter Applied: {filter}</p>
+        {startDate && endDate &&(
+            <p>Date Range: {startDate} - {endDate}</p>
+        )}
         <h6>Viewed Accessions over last xx days</h6>
         <p>Yesterday: {numViewsYesterday}</p>
         <p>Today: {numViewsToday}</p>

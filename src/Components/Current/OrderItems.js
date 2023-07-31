@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { GetData } from "../../Services/GetData";
 
-const OrderItems = () => {
+const OrderItems = ({filter}) => {
 
     //state variables for data points from GetData
     const [openOrders, setOpenOrders] = useState(null);
@@ -32,6 +32,7 @@ const OrderItems = () => {
     return(
         <div className = "component">
         <h3>Order Items</h3>
+        <p>Filter applied: {filter}</p>
         {/* using table to organize for now */}
         <table>
             <tr>

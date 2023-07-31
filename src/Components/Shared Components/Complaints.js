@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { GetData } from "../../Services/GetData";
 
-const Complaints = ({timeframe}) => {
+const Complaints = ({timeframe, filter, startDate, endDate}) => {
 
     const [openComplaints, setOpenComplaints] = useState(null);
     const [unansweredComplaints, setUnansweredComplaints] = useState(null);
@@ -20,6 +20,10 @@ const Complaints = ({timeframe}) => {
     return(
         <div className="component">
         <h3>Complaints</h3>
+        <p>Filter Applied: {filter}</p>
+        {startDate && endDate &&(
+            <p>Date Range: {startDate} - {endDate}</p>
+        )}
         <p>Open Complaints: {openComplaints}</p>
         <p>Unanswered Complaints: {unansweredComplaints}</p>
         </div>

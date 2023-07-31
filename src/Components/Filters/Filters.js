@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Dropdown from './Dropdown';
 
 
@@ -6,17 +6,25 @@ import Dropdown from './Dropdown';
   // get options for each dropdown inside filyter s
   // import component 
 
-const Filters = ({filterApplied, setFilterApplied}) => {
-
-
-  const options = [
-    {label: 'option1', value: 'option1'},
-    {label: 'option2', value: 'option2'},
-    {label: 'option3', value: 'option3'},
+const Filters = ({filter, setFilter}) => {
+  
+  const customerOptions = [
+    {label: 'Customer 1', value: 'Customer 1'},
+    {label: 'Customer 2', value: 'Customer 2'},
+    {label: 'Customer 3', value: 'Customer 3'},
   ];
 
-  const [dropdown1, setDropdown1] = useState(null);
-  filterApplied = dropdown1;
+  const coeOptions = [
+    {label: 'COE 1', value: 'COE 2'},
+    {label: 'COE 2', value: 'COE 2'},
+    {label: 'COE 3', value: 'COE 3'},
+  ];
+
+  function buttonClick(){
+    setFilter("Overall");
+  }
+
+  //const [dropdown1, setDropdown1] = useState(null);
 
   return (
     <div>
@@ -26,8 +34,9 @@ const Filters = ({filterApplied, setFilterApplied}) => {
     <div>
       <table>
         <tr>
-      <td><button>Overall</button></td>
-      <td><Dropdown dropdownOptions={options} currentState = {dropdown1} setState = {setDropdown1}/></td>
+      <td><button onClick = {buttonClick}>Overall</button></td>
+      <td><Dropdown dropdownOptions={customerOptions} currentState = {filter} setState = {setFilter}/></td>
+      <td><Dropdown dropdownOptions={coeOptions} currentState = {filter} setState = {setFilter}/></td>
       {/* <td><Dropdown/></td> */}
       </tr>
     </table>

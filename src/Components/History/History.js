@@ -12,36 +12,55 @@ import { useState, useEffect } from "react";
 const History = () => {
 
   const timeframe = "historic";
-  const [filterApplied, setFilterApplied] = useState(1);
+  const [filter, setFilter] = useState(null);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
-  //const [coe, setCOE] = useState(null);
+  const handleStartDateChange = (event) => {
+    setStartDate(event.target.value);
+  };
 
-  // useEffect (() => {
-  //   const getFilter = () => {
-  //     const allFilters = dropdowns();
-  //     setCOE(allFilters.dropdown1);
-  //   }
-
-  //   getFilter();
-  // }, []);
+  const handleEndDateChange = (event) => {
+    setEndDate(event.target.value);
+  };
 
   return (
     <div>
       <Filters 
-      filterApplied={filterApplied}
-      setFilterApplied={setFilterApplied}
+      filter={filter}
+      setFilter={setFilter}
       />
-      <p>{filterApplied}</p>
       <h3>History dashboard goes here</h3>
+      <h4>Enter desired date range</h4> 
+      <label htmlFor="start-date">Start Date:</label>
+      <input
+        type="date"
+        id="start-date"
+        value={startDate}
+        onChange={handleStartDateChange}
+      />
+      <label htmlFor="end-date">End Date:</label>
+      <input
+        type="date"
+        id="end-date"
+        value={endDate}
+        onChange={handleEndDateChange}
+        min = {startDate}
+      />
+      {startDate && endDate && (
+        <p className="selected-dates">
+          Selected date range: {startDate} - {endDate}
+        </p>
+      )}
       <div className = "row">
-        <OrderItems/>
-        <Scans timeframe = {timeframe}/>
-        <WarmupRequests/>
+        <OrderItems filter = {filter} startDate = {startDate} endDate = {endDate}/>
+        <Scans timeframe = {timeframe} filter = {filter} startDate = {startDate} endDate = {endDate}/>
+        <WarmupRequests filter = {filter} startDate = {startDate} endDate = {endDate}/>
       </div>
       <div className = "row">
-        <Accessions timeframe = {timeframe}/>
-        <Requisitions timeframe = {timeframe}/>
-        <Complaints timeframe = {timeframe}/>
+        <Accessions timeframe = {timeframe} filter = {filter} startDate = {startDate} endDate = {endDate}/>
+        <Requisitions timeframe = {timeframe} filter = {filter} startDate = {startDate} endDate = {endDate}/>
+        <Complaints timeframe = {timeframe} filter = {filter} startDate = {startDate} endDate = {endDate}/>
       </div>
     </div>
   );

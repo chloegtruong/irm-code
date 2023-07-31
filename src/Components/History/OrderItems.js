@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { GetData } from "../../Services/GetData";
 
-const OrderItems = () => {
+const OrderItems = ({filter, startDate, endDate}) => {
 
     const [orders, setOrders] = useState(null);
     const [completedOrders, setCompletedOrders] = useState(null);
@@ -26,6 +26,8 @@ const OrderItems = () => {
     return(
         <div className="component">
             <h3>Order Items</h3>
+            <p>Filter Applied: {filter}</p>
+            <p>Date Range: {startDate} - {endDate}</p>
             <p>Total Items: {orders}</p>
             <p>Completed: {completedOrders}</p>
             <p>Cancelled: {cancelledOrders}</p>

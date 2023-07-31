@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Component} from 'react';
 
 const DropdownMenu = ({dropdownOptions, currentState, setState}) => {
     //const [selectedOption, setSelectedOption] = useState('');
