@@ -13,17 +13,17 @@ const Accessions = () => {
         const fetchData = () => {
             const timeframe = "historic"; // always historic time frame in this file
             const data = GetData(timeframe);
-            setNumViewsYesterday(data.viewedAccessionsY);
-            setNumViewsToday(data.viewedAccessionsT);
-            setNumViewsByPathologistYesterday(data.viewedAccessionsY);
-            setNumViewsByPathologistToday(data.viewedAccessionsByPathologistT);
+            setNumViewsYesterday(data.numViewsYesterday);
+            setNumViewsToday(data.numViewsToday);
+            setNumViewsByPathologistYesterday(data.numViewsByPathologistYesterday);
+            setNumViewsByPathologistToday(data.numViewsByPathologistToday);
         };
 
         fetchData();
     }, []);
 
     return(
-        <div>
+        <div className = "component">
         <h3>Accessions</h3>
         <h6>Viewed Accessions over last xx days</h6>
         <p>Yesterday: {numViewsYesterday}</p>

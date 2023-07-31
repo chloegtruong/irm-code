@@ -16,7 +16,7 @@ const Requisitions = () => {
     }, []);
 
     return(
-        <div>
+        <div className="component">
         <h3>Requisitions</h3>
         <p>Unsubmitted Requisitions: {unsubmittedRequisitions}</p>
         </div>

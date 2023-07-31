@@ -20,7 +20,7 @@ const WarmupRequests = () => {
     }, []);
 
     return(
-        <div>
+        <div className="component">
         <h3>Warmup Requests</h3>
         <p>Open Requests: {openWarmupRequests}</p>
         <p>Requests beyond 1 hr: {oldWarmupRequests}</p>

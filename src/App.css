@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: aliceblue;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  /* align-self: center;
+  align-items: center;
+  width: 60%;
+  margin: auto; */
+
+}
+
+.component {
+  width: fit-content; 
+  border: 2px solid;
+  
+}
+
+table{
+  align-self: center;
+  border: 2px solid;
+  margin: auto;
+}
+
+td{
+  align-items: center;
+  align-self: center;
+  border: 2px solid;
+}
+

@@ -24,7 +24,7 @@ const OrderItems = () => {
     }, []);
 
     return(
-        <div>
+        <div className="component">
             <h3>Order Items</h3>
             <p>Total Items: {orders}</p>
             <p>Completed: {completedOrders}</p>

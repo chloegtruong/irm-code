@@ -18,7 +18,7 @@ const Complaints = ({timeframe}) => {
     }, [timeframe]);
 
     return(
-        <div>
+        <div className="component">
         <h3>Complaints</h3>
         <p>Open Complaints: {openComplaints}</p>
         <p>Unanswered Complaints: {unansweredComplaints}</p>

@@ -6,25 +6,8 @@ import Dropdown from './Dropdown';
   // get options for each dropdown inside filyter s
   // import component 
 
-const Filters = () => {
+const Filters = ({filterApplied, setFilterApplied}) => {
 
-  // function Dropdown(props){
-
-  //   const [display, setDisplay] = useState('none');
-
-  //   function handleClick(){
-  //     if (display == 'none'){
-  //       setDisplay ('block')
-  //     }
-  //     else{
-  //       setDisplay('none')
-  //     }
-  //   }
-  // }
-
-  // const [option1, setOption1] = useState(null);
-  // const [option2, setOption2] = useState(null);
-  // const [option3, setOption3] = useState(null);
 
   const options = [
     {label: 'option1', value: 'option1'},
@@ -33,6 +16,7 @@ const Filters = () => {
   ];
 
   const [dropdown1, setDropdown1] = useState(null);
+  filterApplied = dropdown1;
 
   return (
     <div>
@@ -51,5 +35,7 @@ const Filters = () => {
     </div>
   );
 };
+
+
 
 export default Filters;

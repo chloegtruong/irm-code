@@ -5,23 +5,44 @@ import WarmupRequests  from "../History/WarmupRequests";
 import Accessions from "../Shared Components/Accessions";
 import Requisitions from "../Shared Components/Requisitions";
 import Complaints from "../Shared Components/Complaints";
+//import {dropdowns} from "../Filters/Filters";
+import { useState, useEffect } from "react";
 
 
 const History = () => {
 
   const timeframe = "historic";
+  const [filterApplied, setFilterApplied] = useState(1);
+
+  //const [coe, setCOE] = useState(null);
+
+  // useEffect (() => {
+  //   const getFilter = () => {
+  //     const allFilters = dropdowns();
+  //     setCOE(allFilters.dropdown1);
+  //   }
+
+  //   getFilter();
+  // }, []);
 
   return (
     <div>
-      <Filters />
+      <Filters 
+      filterApplied={filterApplied}
+      setFilterApplied={setFilterApplied}
+      />
+      <p>{filterApplied}</p>
       <h3>History dashboard goes here</h3>
-      <OrderItems/>
-      <Scans timeframe = {timeframe}/>
-      <WarmupRequests/>
-      <Accessions timeframe = {timeframe}/>
-      <Requisitions timeframe = {timeframe}/>
-      <Complaints timeframe = {timeframe}/>
-
+      <div className = "row">
+        <OrderItems/>
+        <Scans timeframe = {timeframe}/>
+        <WarmupRequests/>
+      </div>
+      <div className = "row">
+        <Accessions timeframe = {timeframe}/>
+        <Requisitions timeframe = {timeframe}/>
+        <Complaints timeframe = {timeframe}/>
+      </div>
     </div>
   );
 };

@@ -30,7 +30,7 @@ const OrderItems = () => {
     }, []);
 
     return(
-        <div>
+        <div className = "component">
         <h3>Order Items</h3>
         {/* using table to organize for now */}
         <table>

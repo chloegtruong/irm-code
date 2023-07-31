@@ -23,7 +23,7 @@ const Scans = () => {
     }, []);
 
     return(
-        <div>
+        <div className="component">
         <h3>Scans</h3>
         <p>Total Scans: {totalScans}</p>
         <p>Open Scans (4+ hours old): {openScans}</p>

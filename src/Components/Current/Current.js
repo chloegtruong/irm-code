@@ -14,12 +14,16 @@ const Current = () => {
     <div>
       <Filters />
       <h3>Current dashboard goes here</h3>
-      <OrderItems/>
-      <Scans timeframe = {timeframe}/>
-      <WarmupRequests/>
-      <Accessions timeframe = {timeframe}/>
-      <Requisitions timeframe = {timeframe}/>
-      <Complaints timeframe = {timeframe}/>
+      <div className = "row">
+        <OrderItems/>
+        <Scans timeframe = {timeframe}/>
+        <WarmupRequests/>
+      </div>
+      <div className = "row">
+        <Accessions timeframe = {timeframe}/>
+        <Requisitions timeframe = {timeframe}/>
+        <Complaints timeframe = {timeframe}/>
+      </div>
     </div>
   );
 };
