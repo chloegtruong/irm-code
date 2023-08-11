@@ -1,40 +1,41 @@
-import { Link, NavLink } from "react-router-dom";
-
+import { Link, NavLink, useLoaderData, useLocation } from "react-router-dom";
+import logo from '/Users/chloetruong/Desktop/DPoD dash/digipath-dashboard-frontend-main/src/Components/NavMenu/logo.jpg';
+import { useEffect, useState } from 'react';
 /*
 ----------------------------- Notes -------------------------------------
 1. Updated NavMenu with horizontal (desktop view) and vertical (mobile view) menu-items.
 2. NavLink, Link components of react-router-dom used for highlighting the activate menu-item, 
 navigate back to landing page on brand click.
 3. Made the nav-bar container responsive to view-port widths rather fluid. 
+
+Chloe: I redid this navbar using styling from Figma. 
 */
 
-const NavMenu = () => {
+const NavMenu = ({timeframe, setTimeFrame}) => {
+
+  const selectedStyle = ({isActive})=>{
+    return{
+      color: isActive? '#1B75BC': '#626262',
+      textAlign:'center',
+      fontFamily:'Inter',
+      fontSize:'20px',
+      fontStyle:'normal',
+      fontWeight:  isActive? '700px' : '400px',
+      lineHeight:'normal',
+      textDecoration: isActive? 'normal' : 'none',
+    }
+  }
+
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav justify-content-evenly w-100">
-            <li className="nav-item text-md-center">
-              <NavLink to="/current">Current</NavLink>
-            </li>
-            <li className="nav-item text-md-center">
-              <NavLink to="/history">History</NavLink>
-            </li>
-          </ul>
-        </div>
+    <div class = "nav-bar">
+      <div class = "nav-content">
+      <div class = "logo">
+      <img src = {logo} alt = "logo"/>
       </div>
-    </nav>
+      <NavLink style = {selectedStyle} to="/current">Current</NavLink>
+      <NavLink style = {selectedStyle} to="/history">History</NavLink>
+      </div>
+    </div>
   );
 };
 

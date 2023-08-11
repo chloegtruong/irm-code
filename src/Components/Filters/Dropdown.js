@@ -1,7 +1,12 @@
-import React, {useState, Component} from 'react';
+import React from 'react';
+
+/*
+----------------------------- Notes -------------------------------------
+This page gives a reusable dropdown for filters. It sets filter based on the dropdown selected
+ and inherits dropdownOptions, currentState, setState from Filters.js
+*/
 
 const DropdownMenu = ({dropdownOptions, currentState, setState}) => {
-    //const [selectedOption, setSelectedOption] = useState('');
   
     const handleSelect = (event) => {
       setState(event.target.value);

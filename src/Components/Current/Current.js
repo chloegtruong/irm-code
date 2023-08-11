@@ -3,21 +3,25 @@ import Accessions from "../Shared Components/Accessions";
 import Complaints from "../Shared Components/Complaints";
 import OrderItems from "../Current/OrderItems";
 import Requisitions from "../Shared Components/Requisitions";
-import Scans from "../Shared Components/Scans";
+import Scans from "./Scans";
 import WarmupRequests from "../Current/WarmupRequests";
 import { useState } from 'react';
 
+/*
+----------------------------- Notes -------------------------------------
+This page holds the current dashboard.
+*/
+
 const Current = () => {
 
-  const timeframe = "current";
-  const [filter, setFilter] = useState(null);
-  // const test = Filters.filter;
+  const timeframe = "current"; //set timeframe
+  const [filter, setFilter] = useState(null); //state variable to get/get filters
+  
   return (
     <div>
       <Filters 
       filter = {filter}
       setFilter = {setFilter}/>
-      <h3>Current dashboard goes here</h3>
       <div className = "row">
         <OrderItems filter = {filter}/>
         <Scans timeframe = {timeframe} filter = {filter}/>

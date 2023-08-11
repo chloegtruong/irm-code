@@ -1,7 +1,10 @@
-//import GetData from "../Services/GetData";
-
 import { useEffect, useState } from "react";
 import { GetData } from "../../Services/GetData";
+
+/*
+----------------------------- Notes -------------------------------------
+This page displays the order items in the current dashboard. 
+*/
 
 const OrderItems = ({filter}) => {
 
@@ -29,39 +32,81 @@ const OrderItems = ({filter}) => {
         fetchData(); // function call
     }, []);
 
+
+    // style constants
+    const openItemTitle = {
+        backgroundColor: '#28865E',
+        color: '#FFFFFF',
+        margin: "5px",
+
+    };
+
+    const openItemContent = {
+        color: "#28865E",
+        fontSize: '20px',
+        fontWeight: 'bold',
+    };
+
+    const completedItemTitle = {
+        backgroundColor: '#1B75BC',
+        color: '#FFFFFF',
+        margin: "5px",
+    };
+
+    const completedItemContent = {
+        color: "#1B75BC",
+        fontSize: '20px',
+        fontWeight: 'bold',
+        
+    };
+
+    const cancelledItemTitle = {
+        backgroundColor: '#BC2D0D',
+        color: '#FFFFFF',
+        margin: "5px",
+    };
+
+    const cancelledItemContent = {
+        color: "#BC2D0D",
+        fontSize: '20px',
+        fontWeight: 'bold',
+    };
+
+
     return(
-        <div className = "component">
+        <div className = "order-items">
+        <div className="card-header">
         <h3>Order Items</h3>
-        <p>Filter applied: {filter}</p>
-        {/* using table to organize for now */}
-        <table>
-            <tr>
-            <td>Open items</td>
-            <td>Completed Today</td>
-            <td>Cancelled Today</td>
-            </tr>
-            <tr>
+        </div>
+        {/* <p>Filter applied: {filter}</p> */}
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+            <div>
+                <p style = {openItemTitle}>Open items</p>
                 {openOrders != null ? (
-                    <td>{openOrders}</td>
+                    <p style={openItemContent}>{openOrders}</p>
                 ) : (
-                    <td>N/A</td>
+                    <p>N/A</p>
                 )}
-
-                {completedOrders != null ? (
-                    <td>{completedOrders}</td>
+            </div>
+            <div>
+            <p style = {completedItemTitle}>Completed Today</p>
+            {completedOrders != null ? (
+                    <p style = {completedItemContent}>{completedOrders}</p>
                 ) : (
-                    <td>N/A</td>
+                    <p>N/A</p>
                 )}
-                
-                {cancelledOrders != null ? (
-                    <td>{cancelledOrders}</td>
+            </div>
+            <div>
+            <p style = {cancelledItemTitle}>Cancelled Today</p>
+            {cancelledOrders != null ? (
+                    <p style = {cancelledItemContent}>{cancelledOrders}</p>
                 ) : (
-                    <td>N/A</td>
+                    <p>N/A</p>
                 )}
-
-            </tr>
-        </table>
+            </div>
+        </div>
         <p>Prior day orders (4+ hrs old): {oldOrders}</p>
+        <hr/>
         <p>Same day orders (4+ hours old): {sameDayOrders}</p>
         </div>
     );
